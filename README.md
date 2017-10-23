@@ -57,10 +57,10 @@ Once the user logins to filestashapp, he can perform following operations:
 ![alt text](screenshots/Filelist.png "this is the landing page after login")
 
 ## Upload window
-![alt text](screenshots/EditFile.png "this is the upload window")
+![alt text](screenshots/UploadFile.png "this is the upload window")
 
 ## Update window
-![alt text](screenshots/EditFile.png  100x20 "this is the update window")
+![alt text](screenshots/EditFile.png  50x15 "this is the update window")
 
 
 
