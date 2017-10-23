@@ -1,0 +1,35 @@
+<div class="modal-dialog" data-ng-controller="FileUploadController">
+    <div class="container" align="center">
+        <div class="modal-body">
+            <div class="row"><div class="col-sm-4">
+                <h2>Upload File</h2>
+            </div></div>
+            <form name="uploadFileForm" enctype="multipart/form-data" class="form-group" data-ng-submit="uploadFile()">
+
+                <div class="row"><div class="col-sm-4">
+                    <input type="file" file-model="myfile"/>
+                    <!--<input type="file" class="form-control" placeholder="Select file"-->
+
+                           <!--onchange="angular.element(this).scope().onChange(this.files)"/>-->
+                </div></div><br>
+
+                <div class="row"><div class="col-sm-4">
+                    <input type="text" class="form-control" placeholder="File name"data-ng-model="fileInfo.fileName"/>
+                </div></div><br>
+
+                <div class="row"><div class="col-sm-4">
+                    <textarea class="form-control"  placeholder="File description" data-ng-model="fileInfo.fileDsc"/></div></div>
+                <div class="row" align="center"><div class="col-sm-4">
+                    <br>
+                    <!--    <button ng-click="loginUser(user)">Save</button>-->
+                    <button type="submit" class="btn btn-success">Upload</button>
+
+                </div></div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+

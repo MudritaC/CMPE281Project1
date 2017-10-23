@@ -1,0 +1,56 @@
+<!--<p>This is the partial for view 2.</p>-->
+<!--<ul>-->
+    <!--<li>First name : {{firstname}}</li>-->
+    <!--<li>Last name : {{lastname}}</li>-->
+<!--</ul>-->
+
+<!--&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+<div ng-controller="S3Ctrl">
+    <form name="testForm" class="form-horizontal" novalidate>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Single Upload</label>
+
+            <div class="col-sm-10">
+                <div class="row">
+                    <div class="col-md-2">
+                        <button class="btn btn-block pull-left btn-default" s3 options="options2" name="upload" ng-model="form.file" required> Select file</button>
+                    </div>
+                    <div class="col-md-10" ng-show="form.file.length > 0">
+                        <div class="alert" ng-class="{'alert-danger': form.file[0].error === true, 'alert-warning': form.file[0].success === false, 'alert-success': form.file[0].success === true}">
+                            <div class="pull-right">
+                                <button ng-show="form.file[0].cancel" class="btn btn-xs btn-warning" ng-click="form.file[0].cancel()">Cancel</button>
+                                <button ng-hide="form.file[0].cancel" class="btn btn-xs btn-danger" ng-click="delete2(form.file[0].name)">delete</button>
+                            </div>
+                            {{form.file[0].real || form.file[0].name}}
+
+                            <div class="alert row" ng-show="form.file[0].progress">
+                                <div class="col-md-3">
+                                    {{form.file[0].speed | speedsize}}
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="progress" style="margin: 0;">
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" ng-style="{width:form.file[0].progress+'%'}">
+                                            {{form.file[0].progress}}%
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div ng-messages="testForm.upload.$error">
+                    <div ng-message="totalsize" class="alert-danger alert">Total size of files is too big.</div>
+                    <div ng-message="totalfiles" class="alert-danger alert">Total number of files is more than allowed, please delete some of them.</div>
+                    <div ng-message="required" class="alert-danger alert">At least one file have to be uploaded.</div>
+                    <div ng-message="extension" class="alert-danger alert">File is of a wrong extension.</div>
+                    <div ng-message="filesize" class="alert-danger alert">One of the files exceed allowed size.</div>
+                    <div ng-message="policy_content" class="alert-danger alert">URL provides not a policy.</div>
+                    <div ng-message="policy_get" class="alert-danger alert">Cannot get policy over URL provided.</div>
+                    <div ng-message="policy_set" class="alert-danger alert">No policy parameter found.</div>
+                    <div ng-message="upload" class="alert-danger alert">Something happened during uplaod.</div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

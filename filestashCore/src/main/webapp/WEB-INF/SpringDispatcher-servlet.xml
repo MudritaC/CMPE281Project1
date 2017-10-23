@@ -1,0 +1,71 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/mvc
+	http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	<mvc:default-servlet-handler/>
+	<mvc:annotation-driven />
+	
+	<context:component-scan base-package="org.CMPE281.filemanager.controller"/>
+	<context:property-placeholder location="classpath:database.properties" />
+	
+	
+	<bean id="dataSource"
+	class="org.apache.commons.dbcp.BasicDataSource">
+		<!-- class="org.springframework.jdbc.datasource.DriverManagerDataSource"> -->
+		<property name="driverClassName" value="${driver-class-name}"/>
+		 <property name="url" value="${url}"/>
+		 <property name="username" value="${username}"/>
+		 <property name="password" value="${password}"/>
+	</bean>
+	
+	
+	
+	<bean id="userController" class="org.CMPE281.filemanager.controller.UserController">
+		<property name="userDao" ref="userDaoImpl"/>
+		<property name="userService" ref="userService"/>
+	</bean>
+	
+	<bean id="fileController" class="org.CMPE281.filemanager.controller.FileController" 
+		  p:fileService-ref ="fileService"
+	     p:s3UploadService-ref ="s3UploadService"/>
+	
+
+	<bean id = "fileService" class ="org.CMPE281.filemanager.service.FileService"
+		  p:fileDao-ref ="fileDaoImpl"
+		  p:uploadResponseVO-ref ="uploadResponseVO"/>
+
+	<bean id = "s3UploadService" class ="org.CMPE281.filemanager.service.S3UploadService"
+		  p:s3UploadDaoImpl-ref ="s3UploadDaoImpl"
+		  p:uploadResponseVO-ref ="uploadResponseVO"/>
+
+	<bean id = "userService" class ="org.CMPE281.filemanager.service.UserService"
+		  p:userDao-ref ="userDaoImpl"
+		  p:uploadResponseVO-ref ="uploadResponseVO"/>
+
+
+	<bean id = "userDaoImpl" class ="org.CMPE281.filemanager.dal.UserDaoImpl"/>
+	<bean id = "fileDaoImpl" class ="org.CMPE281.filemanager.dal.FileDaoImpl"/>
+	<bean id = "s3UploadDaoImpl" class ="org.CMPE281.filemanager.dal.s3uploadDaoImpl"/>
+	<bean id = "uploadResponseVO" class ="org.CMPE281.filemanager.model.UploadResponseVO"/>
+
+
+
+	<bean id="multipartResolver"
+		  class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
+		  p:defaultEncoding="utf-8" >
+		<!-- one of the properties available; the maximum file size in bytes -->
+		<!-- <property name="maxUploadSize" value="40000000" /> -->
+	</bean>
+
+
+	<bean id="corsFilter" class="org.CMPE281.filemanager.filter.CorsFilter" />
+
+
+</beans>

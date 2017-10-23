@@ -1,0 +1,26 @@
+<div class="modal-dialog" data-ng-controller="LoginController">
+    <div class="container" align="center">
+        <div class="modal-body">
+            <div class="row"><div class="col-sm-4">
+            <h2>Login</h2>
+            </div></div>
+            <form name="loginForm" class="form-group" data-ng-submit="loginUser()">
+
+            <div class="row"><div class="col-sm-4">
+            <input type="text" class="form-control" placeholder="Username"data-ng-model="user.userID"/>
+            </div></div><br>
+
+            <div class="row"><div class="col-sm-4">
+            <input type="password" class="form-control"  placeholder="Password" data-ng-model="user.passcode"></div></div>
+            <div class="row" align="center"><div class="col-sm-4">
+            <br>
+                <!--    <button ng-click="loginUser(user)">Save</button>-->
+                <button type="submit" class="btn btn-success">Login</button>
+           </div></div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
