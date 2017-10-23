@@ -36,8 +36,15 @@ Once the user logins to filestashapp, he can perform following operations:
 ## Running the project from local
         • To run the project from local machine firstly clone the repository on your machine.
         • create .aws directory and store your IAM user's credentials file(created above) inside this directory.
+        
+        ### Database setup
+            • Connect to RDS server created in above step.
+            • Execute CreateTableScripts.sql present in databaseScripts folder.
+            • This will create your tables and your database will be ready to use.
+            • Now make configuration changes to point core server to point to your RDS server.
+            • Give RDS properties of RDS server that you created above inside filestashCore/src/main/resources/database.properties file.
+            
         ### Running core server:
-            • Give RDS properties for RDS server that you created above inside filestashCore/src/main/resources/database.properties file.
             • Give bucket name and cloudfront name in filestashCore/src/main/java/org/CMPE281/filemanager/dal/s3uploadDaoImpl.java file
             • Open terminal if you are using MAC.
             • cd to the location where repository is cloned till filestashCore directory.
@@ -45,6 +52,7 @@ Once the user logins to filestashapp, he can perform following operations:
             • This will create a war file for the core layer.
             • Copy the war file created and put it inside webapp directory of Tomcat server.
             • This will start your core layer server.
+            
         ### Running web server:
             • Now to start web layer server, go to terminal again.
             • cd to location where repository is cloned till filestashView directory.
