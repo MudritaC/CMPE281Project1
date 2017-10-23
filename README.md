@@ -1,11 +1,11 @@
 # CMPE281Project1
 
-University Name: http://www.sjsu.edu/
-Course: Cloud Technologies
-Professor: Sanjay Garje
-ISA: Divyankitha Urs
-Student: Mudrita Chaturvedi
-Linkedin url : www.linkedin.com/in/mudrita-chaturvedi-aa844588
+    University Name: http://www.sjsu.edu/
+    Course: Cloud Technologies
+    Professor: Sanjay Garje
+    ISA: Divyankitha Urs
+    Student: Mudrita Chaturvedi
+    Linkedin url : www.linkedin.com/in/mudrita-chaturvedi-aa844588
 
 ## About Us:
 Filestashapp is an application that enables its users to keep their important files and documents safely and securely. It allows its users to access their files worldwide. The application is completely hosted in aws cloud and leverages numerous cloud services provided by aws to make it highly available and scalable.
@@ -46,5 +46,28 @@ Once the user logins to filestashapp, he can perform following operations:
             • cd to location where repository is cloned till filestashView directory.
             • Now run command "node scripts/web-server.js"
             • This will start your web server on port 8000.
-
+            
+## Home Page
 ![alt text](screenshots/homepage.png "this is the home page")
+
+## Login window
+![alt text](screenshots/Login.png "this is login window")
+
+## Home  page after login
+![alt text](screenshots/Filelist.png "this is the landing page after login")
+
+## Upload window
+![alt text](screenshots/EditFile.png "this is the upload window")
+
+## Update window
+![alt text](screenshots/EditFile.png "this is the update window")
+
+
+
+
+
+
+
+
+
+
