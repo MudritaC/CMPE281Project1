@@ -17,8 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class s3uploadDaoImpl {
     private static String bucketName     = "cmpe281mudrita";
-    private static String keyName        = "catimg";
-    private static String uploadFileName = "/Users/mudrita/Documents/catimg.jpg";
+    private static String cloudFront     = "dn7wl12fivi6c.cloudfront.net";
 
     public String s3Fileupload(org.CMPE281.filemanager.model.File file){
         AmazonS3 s3client=new AmazonS3Client(new ProfileCredentialsProvider());
@@ -62,6 +61,11 @@ public class s3uploadDaoImpl {
         AmazonS3 s3client=new AmazonS3Client(new ProfileCredentialsProvider());
         S3Object s3Object = s3client.getObject(new GetObjectRequest(bucketName,fileName));
      return s3Object.getObjectContent().getHttpRequest().getURI().toString();
+    }
+
+    public String getcloudFrontFileURL(String fileName){
+        System.out.println("http://"+cloudFront+"/"+fileName);
+        return "http://"+cloudFront+"/"+fileName;
     }
 
 

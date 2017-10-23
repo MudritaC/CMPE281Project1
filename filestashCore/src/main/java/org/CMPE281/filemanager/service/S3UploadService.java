@@ -47,6 +47,10 @@ public class S3UploadService {
         return s3UploadDaoImpl.getFileURL(fileName);
     }
 
+    public String getcloudFrontFileURL(String fileName){
+        return s3UploadDaoImpl.getcloudFrontFileURL(fileName);
+    }
+
     public String deleteFile(String fileName){
         return s3UploadDaoImpl.deleteFile(fileName);
     }

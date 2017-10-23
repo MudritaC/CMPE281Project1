@@ -45,7 +45,7 @@ public class FileController {
 	@RequestMapping(value=INSERT_FILE_URL, method=RequestMethod.POST)
 	public @ResponseBody UploadResponseVO insertFile (@RequestBody File file) {
 		//getting file url from s3
-		file.setFileUrl(s3UploadService.getFileURL(file.getFileName()));
+		file.setFileUrl(s3UploadService.getcloudFrontFileURL(file.getFileName()));
 		return fileService.insertFile(file);
 	}
 
@@ -91,6 +91,11 @@ public class FileController {
 		return s3UploadService.getFileURL(fileName);
 	}
 
+	@RequestMapping(value=GET_CLOUDFRONT_FILE_URL, method=RequestMethod.POST)
+	public @ResponseBody String getcloudFrontFileURL (@RequestBody String fileName) {
+		return s3UploadService.getcloudFrontFileURL(fileName);
+	}
+
 	@RequestMapping(value=DELETE_S3_FILE_URL, method=RequestMethod.POST)
 	public @ResponseBody UploadResponseVO deletFileFromS3 (@RequestBody File file) {
 		if ("SUCCESS".equals(s3UploadService.deleteFile(file.getFileName()))){
@@ -120,7 +125,7 @@ public class FileController {
 		UploadResponseVO uploadResponseVO = s3UploadService.s3Fileupload(newFile);
 		if(uploadResponseVO.getStatus().equals("SUCCESS")){
 			//Update the DB.
-			String url = s3UploadService.getFileURL(newFile.getFileName());
+			String url = s3UploadService.getcloudFrontFileURL(newFile.getFileName());
 			newFile.setFileUrl(url);
 			uploadResponseVO = fileService.updateFile(newFile);
 			return uploadResponseVO;

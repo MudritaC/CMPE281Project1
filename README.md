@@ -31,10 +31,14 @@ Once the user logins to filestashapp, he can perform following operations:
         • S3 bucket with s3 transfer acceleration enabled.
         • Cloudfront for the S3 bucket that is created.
         • MYSQL RDS server with single AZ for database
+        • IAM user that has get/put/delete access on the bucket created.
 
 ## Running the project from local
         • To run the project from local machine firstly clone the repository on your machine.
+        • create .aws directory and store your IAM user's credentials file(created above) inside this directory.
         ### Running core server:
+            • Give RDS properties for RDS server that you created above inside filestashCore/src/main/resources/database.properties file.
+            • Give bucket name and cloudfront name in filestashCore/src/main/java/org/CMPE281/filemanager/dal/s3uploadDaoImpl.java file
             • Open terminal if you are using MAC.
             • cd to the location where repository is cloned till filestashCore directory.
             • Now run command "mvn clean install".

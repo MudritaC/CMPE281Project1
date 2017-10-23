@@ -16,6 +16,7 @@ public class FileManagerConstants {
 
 
     public static final String GET_S3_FILE_URL = "/getS3FileURL";
+    public static final String GET_CLOUDFRONT_FILE_URL = "/getCloudFrontFileURL";
 
     //User CRUD related constants
     public static final String USER_COUNT_URL ="/UserCount";
