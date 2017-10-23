@@ -60,7 +60,7 @@ Once the user logins to filestashapp, he can perform following operations:
 ![alt text](screenshots/UploadFile.png "this is the upload window")
 
 ## Update window
-![alt text](screenshots/EditFile.png  = 50x15 "this is the update window")
+![alt text](screenshots/EditFile.png "this is the update window")
 
 
 
