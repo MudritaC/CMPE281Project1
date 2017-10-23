@@ -27,13 +27,13 @@ Once the user logins to filestashapp, he can perform following operations:
         • Node and npm downloaded and installed on local machine
         • Git downloaded and installed
 
-### Resources that needs to be created before running this application on local machine
+### Cloud Resources that needs to be created before running this application on local machine
         • S3 bucket with s3 transfer acceleration enabled.
         • Cloudfront for the S3 bucket that is created.
         • MYSQL RDS server with single AZ for database
 
 ## Running the project from local
-        • To run the project from local maching firstly clone the repository on your machine.
+        • To run the project from local machine firstly clone the repository on your machine.
         ### Running core server:
             • Open terminal if you are using MAC.
             • cd to the location where repository is cloned till filestashCore directory.
